@@ -1,0 +1,12 @@
+{
+    "name": "danid/proyecto-final-web",
+    "authors": [
+        {
+            "name": "LuisDaniel1505",
+            "email": "lontiveros_23@alu.uabcs.mx"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}

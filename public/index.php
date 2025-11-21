@@ -98,7 +98,7 @@ $noticias = getNoticias();
                     <h3 class="card-title"><?=$noticia['titulo']?></h3>
                     <p class="opacity-80"><?=$noticia['descripcion']?></p>
                     <div class="card-actions justify-between items-center">
-                    <a class="btn btn-ghost btn-sm" href="<?=SRC_PATH?>/views/news.php" target="_blank">Leer</a>
+                    <a class="btn btn-ghost btn-sm" href="<?=SRC_PATH?>/views/news/news.php" target="_blank">Leer</a>
                     <span class="text-xs opacity-60"><?=$noticia['duracion']?></span>
                     </div>
                 </div>

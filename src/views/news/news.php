@@ -1,7 +1,7 @@
 <?php 
 require __DIR__.'/layouts/header.php'
 ?>
-<main class="min-h-screen  text-gray-800 mt-20">
+<main class="min-h-screen text-gray-800 mt-20">
 
     <section class="max-w-6xl mx-auto px-4 py-8 lg:py-12 lg:grid lg:grid-cols-[1.8fr,1fr] lg:gap-10">
 
@@ -15,7 +15,7 @@ require __DIR__.'/layouts/header.php'
                 <div class="grid md:grid-cols-[1.2fr,1.3fr] gap-0">
 
                     <figure class="relative max-h-80 overflow-hidden">
-                        <img src="<?=ASSETS_PATH?>/img/piovi.jpeg"
+                        <img src="<?=ASSETS_PATH?>/img/<?=$noticias['image']?>"
                              alt="Gonzalo Piovi en Cruz Azul"
                              class="w-full h-full object-cover hover:scale-105 transition duration-700">
                         <div class="absolute inset-0 bg-linear-to-t from-blue-950/60 via-blue-950/10 to-transparent"></div>
@@ -146,7 +146,7 @@ require __DIR__.'/layouts/header.php'
                 <div
                     class="card card-side bg-white border border-gray-300 hover:border-blue-600 transition">
                     <figure class="w-28 h-24 overflow-hidden">
-                        <img src="<?=ASSETS_PATH?>/img/calendario.jpeg" class="w-full h-full object-cover">
+                        <img src="<?=ASSETS_PATH?>/img/<?=$noticias['image']?>" class="w-full h-full object-cover">
                     </figure>
 
                     <div class="card-body p-3 pr-4">
@@ -188,7 +188,7 @@ require __DIR__.'/layouts/header.php'
                 <div
                     class="card card-side bg-white border border-gray-300 hover:border-blue-600 transition">
                     <figure class="w-28 h-24 overflow-hidden">
-                        <img src="<?=ASSETS_PATH?>/img/estadio.jpg" class="w-full h-full object-cover">
+                        <img src="<?=ASSETS_PATH?>/img/<?=$noticias['image']?>" class="w-full h-full object-cover">
                     </figure>
 
                     <div class="card-body p-3 pr-4">

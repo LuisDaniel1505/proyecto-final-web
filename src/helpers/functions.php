@@ -1,11 +1,12 @@
 <?php 
 
+require __DIR__.'/../config/database.php';
 $config = require __DIR__.'/../config/config.php';
 define('BASE_PATH', $config['base_url']);
 define('ASSETS_PATH', $config['assets_url']);
 define('SRC_PATH', $config['src_url']);
 
-function getNoticias() {
+function getmoticias() {
     return [
         [
             'titulo' => 'parte médico: evolución favorable',
@@ -56,6 +57,51 @@ function getNoticias() {
             'noticia' => ''
         ]
     ];
+}
+function getNoticias() {
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT * FROM noticias";
+
+        $stmt = $pdo->query($sql);
+
+        $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $news;
+    }catch (PDOException $e) {
+        error_log("Error al consultar la base de datoso: ". $e->getMessage());
+        return [];
+    }
+}
+
+function getCareerDetails($newsId = null) {
+    if($newsId == null && isset($_GET['newsId'])){
+        $newsId = filter_input(INPUT_GET, 'newsId', FILTER_SANITIZE_STRING);
+    }
+
+    //Si no se envió una carrera
+    if ($newsId === null) {
+        return [];
+    }
+
+    $pdo = getPDO();
+
+    try {
+        $sql = "SELECT * FROM noticias WHERE id = :id LIMIT 1";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(['id' => $newsId]);
+        $newsDetails = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$newsDetails) {
+            return []; // Carrera no encontrada
+        }
+
+        return $newsDetails;
+    } catch (PDOException $e) {
+        error_log("Error al consultar la base de datos: " . $e->getMessage());
+        return [];
+    }
 }
 
 ?>
