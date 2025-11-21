@@ -14,7 +14,6 @@ require __DIR__.'/../../helpers/functions.php';
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-100">
-  <!--
   <div class="navbar bg-blue-800 fixed top-0 left-0 right-0 z-50 shadow-sm">
     <div class="navbar bg-blue-800">
       <div class="navbar-start">
@@ -55,6 +54,5 @@ require __DIR__.'/../../helpers/functions.php';
       </div>
     </div>
   </div>
--->
 
   
