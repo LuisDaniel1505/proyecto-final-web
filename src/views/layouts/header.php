@@ -1,7 +1,3 @@
-<?php 
-require __DIR__.'/../../helpers/functions.php';
-?>
-
 <!DOCTYPE html>
 <html lang="es" data-theme="light">
 
@@ -10,7 +6,6 @@ require __DIR__.'/../../helpers/functions.php';
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cruz Azul Noticias</title>
   <link href="<?=BASE_PATH?>/output.css" rel="stylesheet">
-  <link rel="stylesheet" href="/11_descargas/src/css/style.css">
 </head>
 
 <body class="min-h-screen flex flex-col bg-base-100">

@@ -1,107 +1,15 @@
-<?php 
-
+<?php
 require __DIR__.'/../config/database.php';
 $config = require __DIR__.'/../config/config.php';
-define('BASE_PATH', $config['base_url']);
-define('ASSETS_PATH', $config['assets_url']);
-define('SRC_PATH', $config['src_url']);
 
-function getmoticias() {
-    return [
-        [
-            'titulo' => 'parte médico: evolución favorable',
-            'descripcion' => 'El delantero entrenó parcialmente con el grupo.',
-            'imagen' => 'lesion.jpg',
-            'duracion' => '3 min',
-            'fecha' => 'Hace 2 horas',
-            'noticia' => ''
-        ],
-        [
-            'titulo' => 'En la mesa: victoria fuera de la cancha',
-            'descripcion' => 'Cruz azul gana un partido por alineación indebida',
-            'imagen' => 'alineacionIndebida.jpeg',
-            'duracion' => '4 min',
-            'fecha' => 'Hace 5 horas',
-            'noticia' => ''
-        ],
-        [
-            'titulo' => 'Posible baja: la pérdida de una pieza clave',
-            'descripcion' => 'El defensor Gonzalo Piovi a punto de salir de Cruz Azul.',
-            'imagen' => 'piovi.jpeg',
-            'duracion' => '3 min',
-            'fecha' => 'Hace 1 hora',
-            'noticia' => ''
-        ],
-        [
-            'titulo' => 'Victora aplastante: los felinos lloran',
-            'descripcion' => 'Victoria de cruz azul ante pumas en amistoso.',
-            'imagen' => 'victoria.jpg',
-            'duracion' => '5 min',
-            'fecha' => 'Hace 2 hora',
-            'noticia' => ''
-        ],
-        [
-            'titulo' => 'Fuertes rumores: un ganador de champions a cruz azul',
-            'descripcion' => 'Rumores de Robert Lewandowski lo acercan a la noria',
-            'imagen' => 'lewan.jpeg',
-            'duracion' => '5 min',
-            'fecha' => 'Hace 6 horas',
-            'notic'
-        ],
-        [
-            'titulo' => 'Seleccionados nacionales: elegidos para representar a sus selecciones',
-            'descripcion' => 'Sale la lista de los seleccionados para esta fecha fifa',
-            'imagen' => 'seleccion.jpg',
-            'duracion' => '2 min',
-            'fecha' => 'Hace 10 horas',
-            'noticia' => ''
-        ]
-    ];
+define('BASE_PATH',   rtrim($config['base_url'], '/'));
+define('ASSETS_PATH', rtrim($config['assets_url'], '/'));
+
+function view($template, $data = []) {
+  extract($data);
+  $viewsPath  = __DIR__ . '/../views/';
+  $layoutPath = $viewsPath . 'layouts/';
+  require $layoutPath . 'header.php';
+  require $viewsPath . $template . '.php';
+  require $layoutPath . 'footer.php';
 }
-function getNoticias() {
-    $pdo = getPDO();
-
-    try {
-        $sql = "SELECT * FROM noticias";
-
-        $stmt = $pdo->query($sql);
-
-        $news = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-        return $news;
-    }catch (PDOException $e) {
-        error_log("Error al consultar la base de datoso: ". $e->getMessage());
-        return [];
-    }
-}
-
-function getCareerDetails($newsId = null) {
-    if($newsId == null && isset($_GET['newsId'])){
-        $newsId = filter_input(INPUT_GET, 'newsId', FILTER_SANITIZE_STRING);
-    }
-
-    //Si no se envió una carrera
-    if ($newsId === null) {
-        return [];
-    }
-
-    $pdo = getPDO();
-
-    try {
-        $sql = "SELECT * FROM noticias WHERE id = :id LIMIT 1";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['id' => $newsId]);
-        $newsDetails = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if (!$newsDetails) {
-            return []; // Carrera no encontrada
-        }
-
-        return $newsDetails;
-    } catch (PDOException $e) {
-        error_log("Error al consultar la base de datos: " . $e->getMessage());
-        return [];
-    }
-}
-
-?>
