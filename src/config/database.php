@@ -8,7 +8,7 @@ function getPDO() : PDO {
         $db = $config['db'];
 
         try {
-            $pdo = new PDO("mysql:host={$db['host']};port={$db['port']};dbname={$db['name']};charset={$db['charset']}", 
+            $pdo = new PDO("mysql:host={$db['host']};dbname={$db['name']};charset={$db['charset']}", 
             $db['user'], 
             $db['password']);
         }catch(PDOException $e) {
