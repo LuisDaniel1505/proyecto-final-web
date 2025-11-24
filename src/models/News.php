@@ -1,4 +1,8 @@
 <?php
+namespace App\Models;
+
+use PDO;
+
 class News {
   private PDO $pdo;
   public $id;
@@ -54,5 +58,17 @@ class News {
       error_log("DB error (find noticia): ".$e->getMessage());
       return null;
     }
+  }
+
+  public function insert($data){
+    //Hacer insertar
+  }
+
+  public function delete($data){
+
+  }
+
+  public function update($data){
+    
   }
 }

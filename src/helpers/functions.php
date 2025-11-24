@@ -13,3 +13,7 @@ function view($template, $data = []) {
   require $viewsPath . $template . '.php';
   require $layoutPath . 'footer.php';
 }
+
+function uploadImage($file, $folder){
+  
+}

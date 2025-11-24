@@ -1,6 +1,8 @@
 <?php
 require __DIR__ . '/../src/helpers/functions.php';
-include __DIR__ . '/../src/models/News.php';
+require __DIR__ . '/../vendor/autoload.php';
+
+use App\Controllers\NewsController;
 
 // Ruta limpia desde ?route=
 $route  = trim($_GET['route'] ?? '', '/');
@@ -12,11 +14,23 @@ if ($route === '' || $route === 'home') {
 
 if ($route === 'news') {
   if ($method === 'GET') {
-    $newsModel = new News(getPDO());
-    $news = $newsModel->all();
-    return view('news/news.index', ['news' => $news]);
+    return (new NewsController())->index();
   }
 }
+if ($route === 'admin/News'){
+  return (new NewsController())->adminIndex();
+}
+
+if($route ==='admin/news/create') {
+  if($method === 'POST'){
+    return (new NewsController())->store($_POST, $_FILES);
+  }
+}
+
+if($route === 'admin/news/edit') {
+
+}
+
 
 if (preg_match('#^news/(\d+)$#', $route, $m)) {
   $id = (int)$m[1];
