@@ -7,6 +7,7 @@ class News {
   public $imagen;
   public $duracion;
   public $fecha;
+  public $cuerpo;
 
   public function __construct(PDO $pdo) { $this->pdo = $pdo; }
 
@@ -23,6 +24,7 @@ class News {
         $n->imagen     = $r['imagen'];
         $n->duracion   = $r['duracion'];
         $n->fecha      = $r['fecha'];
+        $n->cuerpo     = $r['cuerpo'];
         $items[] = $n;
       }
       return $items;
@@ -46,6 +48,7 @@ class News {
       $this->imagen     = $r['imagen'];
       $this->duracion   = $r['duracion'];
       $this->fecha      = $r['fecha'];
+      $this->cuerpo     = $r['cuerpo'];
       return $this;
     } catch (PDOException $e) {
       error_log("DB error (find noticia): ".$e->getMessage());

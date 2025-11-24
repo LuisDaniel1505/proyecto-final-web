@@ -29,7 +29,7 @@
     </article>
     
     <div class="mt-10 lg:mt-0 space-y-3">
-      <!-- Cuerpo de la noticia aqui -->
+      <p><?= $item->cuerpo ?></p>
     </div>
   </section>
 </main>
