@@ -8,7 +8,7 @@ return [
     'base_url' => 'http://localhost:3000/',
     'assets_url' => 'http://localhost:3000/assets',
     'src_url' => 'http://localhost:3000/src',
-
+    
     'db' => [
         'connection' => $_ENV['DB_CONNECTION'],
         'host' => $_ENV['DB_HOST'],

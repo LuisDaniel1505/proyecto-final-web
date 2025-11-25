@@ -17,7 +17,7 @@ if ($route === 'news') {
     return (new NewsController())->index();
   }
 }
-if ($route === 'admin/News'){
+if ($route === 'admin/news'){
   return (new NewsController())->adminIndex();
 }
 
