@@ -3,7 +3,7 @@
         <h2 class="text-2xl font-semibold">Gestión de Noticias</h2>
         <a href="<?=BASE_PATH?>/admin/news/create" 
         class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">
-            + Nueva Noticia
+            Nueva Noticia
         </a>
     </div>
 
@@ -20,13 +20,32 @@
             </thead>
 
             <tbody>
-                <tr class="border-b hover:bg-gray-50 transition">
-                    <td class="px-4 py-3 text-gray-600">Aqui va el ID</td>
-                    <td class="px-4 py-3 font-medium text-gray-800">Aqui nombre</td>
-                    <td class="px-4 py-3 text-sm text-gray-600">Aqui Fecha</td>
-                    <td class="px-4 py-3 text-sm text-gray-600 truncate max-w-xs">Aqui Descripción</td>
-                    <td class="px-4 py-3 flex gap-2"> Aqui estarían los botones</td>
-                </tr>
+                <?php if (empty($news)): ?>
+                    <tr>
+                        <td colspan="5" class="px-4 py-8 text-center text-gray-500">No hay noticias registradas.</td>
+                    </tr>
+                <?php else: ?>
+                    <?php foreach ($news as $item): ?>
+                    <tr class="border-b hover:bg-gray-50 transition">
+                        <td class="px-4 py-3 text-gray-600">#<?= $item->id ?></td>
+                        <td class="px-4 py-3 font-medium text-gray-800"><?= $item->titulo ?></td>
+                        <td class="px-4 py-3 text-sm text-gray-600"><?= $item->fecha ?></td>
+                        <td class="px-4 py-3 text-sm text-gray-600 truncate max-w-xs"><?= $item->descripcion ?></td>
+                        <td class="px-4 py-3 flex gap-2">
+                            <a href="<?=BASE_PATH?>/admin/news/edit/<?= $item->id ?>" 
+                                class="bg-yellow-500 text-white px-3 py-2 rounded hover:bg-yellow-600 transition text-xs font-bold uppercase tracking-wide">
+                                Editar
+                            </a>
+
+                            <a href="<?=BASE_PATH?>/admin/news/delete/<?= $item->id ?>"
+                                onclick="return confirm('¿Estás seguro de eliminar esta noticia? No se puede deshacer.')"
+                                class="bg-red-600 text-white px-3 py-2 rounded hover:bg-red-700 transition text-xs font-bold uppercase tracking-wide">
+                                Eliminar
+                            </a>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

@@ -2,6 +2,7 @@
 namespace App\Models;
 
 use PDO;
+use PDOException;
 
 class News {
   private PDO $pdo;
@@ -62,13 +63,41 @@ class News {
 
   public function insert($data){
     //Hacer insertar
+    try{
+      $sql = "INSERT INTO noticias (titulo,descripcion,imagen,duracion,fecha,cuerpo) VALUES (?,?,?,?,?,?)";
+      $stmt = $this->pdo->prepare($sql);
+      return $stmt->execute([
+        $data['titulo'],
+        $data['descripcion'],
+        $data['imagen'] ?? null,
+        $data['duracion'],
+        $data['fecha'],
+        $data['cuerpo']]);
+    } catch(PDOException $e){
+      die("ERROR FATAL DE BASE DE DATOS: " . $e->getMessage());
+      error_log("Error al consultar la BD: " . $e->getMessage());
+      return false;
+    }
   }
 
-  public function delete($data){
-
+  public function delete($id){
+    try {
+      $stmt = $this->pdo->prepare("DELETE FROM noticias WHERE id = ?");
+      return $stmt->execute([$id]);
+    } catch (PDOException $e) {
+      error_log("Error al consultar la BD: " . $e->getMessage());
+      return false;
+    }
   }
 
   public function update($data){
-    
+    try {
+        $sql = "UPDATE noticias SET titulo = ?, descripcion = ?, imagen = ?, duracion = ?, fecha = ?, cuerpo = ?  WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$data['titulo'], $data['descripcion'], $data['imagen'], $data['duracion'], $data['fecha'], $data['cuerpo'], $data['id']]);
+    } catch (PDOException $e) {
+        error_log("Error al consultar la BD: " . $e->getMessage());
+        return false;
+    }
   }
 }

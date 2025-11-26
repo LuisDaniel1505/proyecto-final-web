@@ -17,6 +17,7 @@ if ($route === 'news') {
     return (new NewsController())->index();
   }
 }
+
 if ($route === 'admin/news'){
   return (new NewsController())->adminIndex();
 }
@@ -25,24 +26,34 @@ if($route ==='admin/news/create') {
   if($method === 'POST'){
     return (new NewsController())->store($_POST, $_FILES);
   }
-}
-
-if($route === 'admin/news/edit') {
-
+  return (new NewsController())->form();
 }
 
 
 if (preg_match('#^news/(\d+)$#', $route, $m)) {
   $id = (int)$m[1];
   if ($method === 'GET') {
-    $newsModel = new News(getPDO());
-    $item = $newsModel->find($id);
-    if (!$item) {
-      http_response_code(404);
-      return view('errors/404');
-    }
-    return view('news/news.details', ['item' => $item]);
+    return (new NewsController())->show($id);
   }
+}
+
+//Editar la noticia y mostrar formulario
+if (preg_match('#^admin/news/edit/(\d+)$#', $route, $matches)) {
+  $id = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
+
+  if($method === 'POST'){
+    return (new NewsController())->update($_POST,$_FILES,$id);
+  }
+
+  if($method ===  'GET') {
+    return (new NewsController())->form($id);
+  }
+}
+
+//Eliminar 
+if (preg_match('#^admin/news/delete/(\d+)$#', $route, $matches)) {
+  $id = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
+  return (new NewsController())->delete($id);
 }
 
 http_response_code(404);
