@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="navbar-center">
-        <a class="btn btn-ghost text-xl font-bold text-white">Imperio Azul Noticias</a>
+        <a class="btn btn-ghost text-xl font-bold text-white" href="<?=BASE_PATH?>/index.php">Imperio Azul Noticias</a>
       </div>
       <div class="navbar-end">
         <button class="btn btn-ghost btn-circle">
