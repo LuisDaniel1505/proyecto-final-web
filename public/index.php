@@ -18,6 +18,12 @@ if ($route === 'news') {
   }
 }
 
+if ($route === 'login') {
+  if ($method === 'GET') {
+    return (new NewsController())->login();
+  }
+}
+
 if ($route === 'admin/news'){
   return (new NewsController())->adminIndex();
 }
