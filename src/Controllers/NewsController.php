@@ -8,11 +8,7 @@ class NewsController {
         $news = $newsModel->all();
         return view('public/news/news.index', ['news' => $news]);
     }
-    public function login(){
-        $loginModel = new News(getPDO());
-        $login = $loginModel->all();
-        return view('auth/login', ['login' => $login]);
-    }
+    
     public function adminIndex(){
         $newsModel = new News(getPDO());
         $news = $newsModel->all();

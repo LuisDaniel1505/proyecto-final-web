@@ -1,15 +1,48 @@
 <?php
+
+if(session_status() === PHP_SESSION_NONE){
+  session_start();
+}
+
 require __DIR__ . '/../src/helpers/functions.php';
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\NewsController;
+use App\Controllers\AuthController;
 
 // Ruta limpia desde ?route=
 $route  = trim($_GET['route'] ?? '', '/');
 $method = $_SERVER['REQUEST_METHOD'];
 
+//Validar que este autenticado para ir a la vista de admin
+if(str_starts_with($route, "admin/")){
+    requireAdmin();
+}
+
 if ($route === '' || $route === 'home') {
   return view('home/index');
+}
+
+//Mandar a vista de login
+if($route === 'login'){
+  if($method === 'POST'){
+    return (new AuthController())->attemptLogin($_POST['email'],$_POST['password']);
+  }
+  if(isAunthenticated()){
+    if(isset($_SESSION['user_access']) && $_SESSION['user_access'] === 'admin'){
+      redirect('admin/news');
+    }
+    else{
+      redirect('home');
+    }
+    
+  }
+  return viewWithoutLayout('auth/login');
+  
+}
+
+if($route === 'logout'){
+  return(new AuthController())->logOut();
 }
 
 if ($route === 'news') {
@@ -20,7 +53,7 @@ if ($route === 'news') {
 
 if ($route === 'login') {
   if ($method === 'GET') {
-    return (new NewsController())->login();
+    return (new AuthController())->login();
   }
 }
 

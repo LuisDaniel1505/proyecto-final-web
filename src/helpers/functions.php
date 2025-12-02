@@ -19,6 +19,16 @@ function redirect($path){
   exit;
 }
 
+//Traer vista sin elementos del Layout
+function viewWithoutLayout($template,$data=[]){
+
+  extract($data);
+
+  $viewsPath = __DIR__. '/../views/';
+
+  require $viewsPath . $template . '.php';
+}
+
 function uploadImage($file, $folder){
   if (!isset($file) || $file['error'] !== UPLOAD_ERR_OK) {
     return null;
@@ -57,3 +67,21 @@ function deleteImage($folder, $filename)
         unlink($path);
     }
 }
+
+function isAunthenticated(){
+  return isset($_SESSION['user_id']);
+}
+
+function requireAuth(){
+  if(!isAunthenticated()){
+    header("Location: ".BASE_PATH."/login");
+  }
+}
+
+function requireAdmin(){
+  requireAuth();
+  if (!isset($_SESSION['user_access']) && $_SESSION['user_access'] === 'admin'){
+    redirect('home');
+  }
+}
+

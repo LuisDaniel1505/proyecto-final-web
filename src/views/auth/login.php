@@ -59,7 +59,13 @@
             </div>
 
             <div class="p-8">
-                <form action="#" method="POST" class="space-y-6">
+                <?php if(isset($error)): ?>
+                    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                        <strong class="font-bold">Error:</strong>
+                        <span class="block sm:inline"><?= $error ?></span>
+                    </div>
+                <?php endif; ?>
+                <form action="<?= BASE_PATH ?>/login" method="POST" class="space-y-6">
                     
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700">Correo Electrónico</label>
