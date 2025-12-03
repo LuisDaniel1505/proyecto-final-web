@@ -68,6 +68,11 @@ if($route ==='admin/news/create') {
   return (new NewsController())->form();
 }
 
+if ($route === 'comments/store') {
+    $controller = new \App\Controllers\CommentController(getPDO());
+    $controller->store();
+}
+
 
 if (preg_match('#^news/(\d+)$#', $route, $m)) {
   $id = (int)$m[1];

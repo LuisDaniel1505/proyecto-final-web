@@ -15,15 +15,25 @@ class NewsController {
         return view('admin/news/index', ['news' => $news]);
     }
 
-    public function show($id){
+   public function show($id){
         $newsModel = new News(getPDO());
         $item = $newsModel->find($id);
+
         if(!$item){
             http_response_code(404);
             return view('errors/404');
         }
-        return view('public/news/news.details', ['item' => $item]);
-        
+
+        $commentModel = new \App\Models\Comment(getPDO());
+        $comments = $commentModel->getByNewsId($id);
+
+        $listaNoticias = $newsModel->all();
+
+        return view('public/news/news.details', [
+            'item' => $item, 
+            'comments' => $comments,
+            'news' => $listaNoticias
+        ]);
     }
 
     public function form($id = null){

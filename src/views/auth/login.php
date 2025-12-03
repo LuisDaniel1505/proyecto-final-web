@@ -103,7 +103,7 @@
                 </div>
             </div>
             
-            <div class="h-2 bg-gradient-to-r from-blue-800 via-blue-600 to-red-600"></div>
+            <div class="h-2 bg-linear-to-r from-blue-800 via-blue-600 to-red-600"></div>
         </div>
     </div>
 
