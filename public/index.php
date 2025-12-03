@@ -9,6 +9,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\NewsController;
 use App\Controllers\AuthController;
+use App\Controllers\UsersController;
 
 // Ruta limpia desde ?route=
 $route  = trim($_GET['route'] ?? '', '/');
@@ -33,7 +34,7 @@ if($route === 'login'){
       redirect('admin/news');
     }
     else{
-      redirect('home');
+      redirect('profile');
     }
     
   }
@@ -98,6 +99,37 @@ if (preg_match('#^admin/news/edit/(\d+)$#', $route, $matches)) {
 if (preg_match('#^admin/news/delete/(\d+)$#', $route, $matches)) {
   $id = filter_var($matches[1], FILTER_SANITIZE_NUMBER_INT);
   return (new NewsController())->delete($id);
+}
+
+//vista de perfil de usuario
+if ($route === 'profile') {
+    requireAuth(); 
+    return (new UsersController())->show();
+}
+
+
+//vista si va a editar un usuario
+if ($route === 'profile/edit'){
+  requireAuth();
+  if($method === 'POST'){
+    return (new UsersController())->update($_POST);
+  }
+  return (new UsersController())->form();
+}
+
+//Funciona para eliminar un usuario
+if ($route === 'profile/delete'){
+  requireAuth();
+  return (new UsersController())->delete();
+}
+
+//Para el caso del registro de usuario
+if ($route === 'register'){
+  
+  if($method === 'POST'){
+    return (new UsersController())->store($_POST);
+  }
+  return viewWithoutLayout('auth/register');
 }
 
 http_response_code(404);
