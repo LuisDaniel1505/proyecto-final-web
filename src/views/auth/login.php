@@ -51,8 +51,10 @@
         <div class="relative z-10 w-full max-w-md bg-white rounded-lg shadow-2xl overflow-hidden m-4">
             
             <div class="bg-gray-50 px-8 py-6 border-b border-gray-100 text-center">
-                <div class="flex items-center justify-start mt-2">
-                    <a href="<?=BASE_PATH ?>/home" class="text-sm font-medium underline text-blue-600 hover:text-blue-500">Inicio</a>
+                <div class="w-full flex justify-start mb-6">
+                    <a href="<?= BASE_PATH ?>/home" class="inline-flex items-center px-4 py-2 text-sm font-bold text-blue-600 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+                    ← Volver al Inicio
+                    </a>
                 </div>
                 <div class="inline-block p-3 rounded-full bg-blue-100 mb-2">
                     <i class="fas fa-user text-blue-800 text-2xl"></i>

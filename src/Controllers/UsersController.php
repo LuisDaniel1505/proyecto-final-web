@@ -65,7 +65,11 @@ class UsersController{
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
 
         if($usersModel->insert($data)){
-            redirect('login');
+            $user = $usersModel->findByEmail($data['email']);
+            $_SESSION['user_id']     = $user['id'];
+            $_SESSION['user_email']  = $data['email'];
+            $_SESSION['user_access'] = 'user';
+            redirect('home');
         }
         return viewWithoutLayout('auth/signUp', ['error' => 'Hubo un error al crear su cuenta. Intentelo mas tarde']);
     }
