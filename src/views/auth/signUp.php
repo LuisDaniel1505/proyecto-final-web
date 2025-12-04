@@ -56,7 +56,7 @@
                 class="mt-1 w-full border border-gray-300 rounded-md p-2 focus:border-blue-900 outline-none">
 
             <div class="flex justify-center gap-3">
-                <a href="<?= BASE_PATH ?>/home"
+                <a href="<?= BASE_PATH ?>/login"
                     class="mt-5 bg-gray-500 text-white px-5 py-2 rounded-md hover:bg-gray-600 transition">
                     Cancelar
                 </a>
