@@ -35,3 +35,4 @@ El proyecto fue desarrollado con la finalidad de aplicar los conocimientos apren
 - **CSS3** _(Tailwind / DaisyUI)_
 - **JavaScript**
 - **GitHub** para control de versiones
+- **Hostgator**
