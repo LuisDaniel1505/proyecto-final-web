@@ -1,6 +1,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="light">
   <title>Cruz Azul Noticias</title>
   <link href="<?=BASE_PATH?>/output.css" rel="stylesheet">
 </head>
