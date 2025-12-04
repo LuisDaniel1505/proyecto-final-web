@@ -3,8 +3,10 @@
 
 ## 👤 Autor
 **Luis Daniel Ontiveros Lares**  
-**Fecha de nacimiento:** 15/07/2005  
-**Correo:** lontiveros_23@alu.uabcs.mx
+**David Camacho Olivas**
+**Eduardo Rios Villanueva**
+**Alexia Gomez**
+**Diego Careaga Celis**
 
 ---
 
@@ -21,9 +23,7 @@ El proyecto fue desarrollado con la finalidad de aplicar los conocimientos apren
 - Secciones principales:
   - Noticias
   - Resultados
-  - Jugadores
-  - Galería
-  - Contacto
+  - Usuarios
 - Estilos personalizados con **TailwindCSS / DaisyUI**.
 - Navegación simple e intuitiva.
 - Código organizado en carpetas por vistas, estilos y scripts.
