@@ -2,11 +2,11 @@
 **Proyecto Final – Programación Web**
 
 ## 👤 Autor
--**Luis Daniel Ontiveros Lares**  
--**David Camacho Olivas**
--**Eduardo Rios Villanueva**
--**Alexia Gomez**
--**Diego Careaga Celis**
+- **Luis Daniel Ontiveros Lares**  
+- **David Camacho Olivas**
+- **Eduardo Rios Villanueva**
+- **Alexia Gomez**
+- **Diego Careaga Celis**
 
 ---
 
