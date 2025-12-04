@@ -30,6 +30,12 @@ El proyecto fue desarrollado con la finalidad de aplicar los conocimientos apren
 
 ---
 
+## Iniciar sesión como administrador
+-- Correo: wazaaa@gmail.com
+-- Contraseña: salsa
+
+---
+
 ## 🛠️ Tecnologías utilizadas
 - **HTML5 y PHP**
 - **CSS3** _(Tailwind / DaisyUI)_
