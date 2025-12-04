@@ -1,18 +1,17 @@
 {
-    "name": "danid/proyecto-final-web",
-    "authors": [
-        {
-            "name": "LuisDaniel1505",
-            "email": "lontiveros_23@alu.uabcs.mx"
-        }
-    ],
-    "require": {
-        "vlucas/phpdotenv": "^5.6"
-    },
+    "name": "marca/proyecto-final-web",
     "autoload": {
     "psr-4": {
         "App\\": "src/"
     }
+    },
+    "authors": [
+        {
+            "name": "DiegoCareaga946",
+            "email": "dcareaga_23@alu.uabcs.mx"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
     }
-    
 }
