@@ -212,7 +212,7 @@
         <h3 class="text-3xl md:text-4xl font-bold tracking-tight text-base-content mb-8">Momentos destacados</h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 1"
                   class="object-cover w-full h-60"
@@ -225,7 +225,7 @@
             </div>
           </a>
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 2"
                   class="object-cover w-full h-60"
@@ -238,7 +238,7 @@
             </div>
           </a>
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 3"
                   class="object-cover w-full h-60"
@@ -251,7 +251,7 @@
             </div>
           </a>
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 4"
                   class="object-cover w-full h-60"
@@ -264,7 +264,7 @@
             </div>
           </a>
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 5"
                   class="object-cover w-full h-60"
@@ -277,7 +277,7 @@
             </div>
           </a>
 
-          <a href="<?= BASE_PATH ?>/news" class="card image-full rounded-2xl overflow-hidden group">
+          <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
               <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 6"
                   class="object-cover w-full h-60"
@@ -396,7 +396,6 @@
             </div>
             <div class="flex flex-col sm:flex-row gap-3 mt-4 md:mt-0">
               <a href="<?= BASE_PATH ?>/news" class="btn btn-primary">Ir a Noticias</a>
-              <a href="<?= BASE_PATH ?>/calendar" class="btn btn-outline">Calendario</a>
             </div>
           </div>
         </div>

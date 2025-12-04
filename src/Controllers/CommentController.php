@@ -23,22 +23,42 @@ class CommentController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_news = $_POST['id_news'] ?? null;
             $content = $_POST['content'] ?? null;
-            $id_user = $_SESSION['user_id'];
-
+            
             if ($id_news && $content) {
                 $commentModel = new Comment($this->pdo);
                 
                 $data = [
-                    'id_user' => $id_user,
-                    'id_news' => $id_news,
-                    'content' => $content,
-                    'username' => $_SESSION['user_email']
+                    'id_user'  => $_SESSION['user_id'],
+                    'id_news'  => $id_news,
+                    'content'  => $content,
+                    'username' => $_SESSION['user_email'] 
                 ];
 
                 $commentModel->save($data);
             }
 
             redirect("news/$id_news");
+        }
+    }
+
+    public function delete($id) {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        if (!isset($_SESSION['user_id'])) {
+            redirect('login');
+            return;
+        }
+
+        $commentModel = new Comment($this->pdo);
+        $comment = $commentModel->find($id);
+
+        if ($comment && $comment->id_user == $_SESSION['user_id']) {
+            $commentModel->delete($id);
+            redirect("news/$comment->id_news");
+        } else {
+            redirect('home');
         }
     }
 }

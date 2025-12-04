@@ -10,6 +10,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use App\Controllers\NewsController;
 use App\Controllers\AuthController;
 use App\Controllers\UsersController;
+use App\Controllers\CommentController; // Agregamos esto para ser ordenados
 
 // Ruta limpia desde ?route=
 $route  = trim($_GET['route'] ?? '', '/');
@@ -36,25 +37,17 @@ if($route === 'login'){
     else{
       redirect('profile');
     }
-    
   }
   return viewWithoutLayout('auth/login');
-  
 }
 
 if($route === 'logout'){
-  return(new AuthController())->logOut();
+  return (new AuthController())->logOut();
 }
 
 if ($route === 'news') {
   if ($method === 'GET') {
     return (new NewsController())->index();
-  }
-}
-
-if ($route === 'login') {
-  if ($method === 'GET') {
-    return (new AuthController())->login();
   }
 }
 
@@ -70,8 +63,15 @@ if($route ==='admin/news/create') {
 }
 
 if ($route === 'comments/store') {
-    $controller = new \App\Controllers\CommentController(getPDO());
+    $controller = new CommentController(getPDO());
     $controller->store();
+    return;
+}
+
+if (preg_match('#^comments/delete/(\d+)$#', $route, $matches)) {
+    $controller = new CommentController(getPDO());
+    $controller->delete($matches[1]);
+    return;
 }
 
 
@@ -107,7 +107,6 @@ if ($route === 'profile') {
     return (new UsersController())->show();
 }
 
-
 //vista si va a editar un usuario
 if ($route === 'profile/edit'){
   requireAuth();
@@ -125,7 +124,6 @@ if ($route === 'profile/delete'){
 
 //Para el caso del registro de usuario
 if ($route === 'signUp'){
-  
   if($method === 'POST'){
     return (new UsersController())->store($_POST);
   }

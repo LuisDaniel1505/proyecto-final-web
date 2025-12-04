@@ -19,12 +19,8 @@
             </svg>
           </div>
           <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>Inicio</a></li>
-            <li><a>Noticias</a></li>
-            <li><a>Calendario</a></li>
-            <li><a>Resultados</a></li>
-            <li><a>Plantel</a></li>
-            <li><a>Tabla</a></li>
+            <li><a href="<?=BASE_PATH?>/index.php">Inicio</a></li>
+            <li><a  href="<?=BASE_PATH?>/news">Noticias</a></li>
           </ul>
         </div>
       </div>

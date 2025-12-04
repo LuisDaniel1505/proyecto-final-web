@@ -32,13 +32,14 @@
           </div>
         </article>
 
-        <div class="p-6 bg-white rounded-xl shadow-xl border border-gray-100">
+        <div class="p-6 bg-white rounded-xl shadow-xl border border-gray-100 mt-10">
+
             <h3 class="text-xl font-bold text-blue-900 mb-4 border-b pb-2">
                 Comentarios (<?= isset($comments) ? count($comments) : 0 ?>)
             </h3>
             <?php if (isAunthenticated()): ?>
                 <form action="<?= BASE_PATH ?>/comments/store" method="POST" class="space-y-4 mb-8 p-4 bg-blue-50 border border-gray-200 rounded-lg">
-                    <input type="hidden" name="id_news" value="<?= $item->id ?>">
+                    <input type="hidden" name="id_news" value="<?= $item->id ?>">                   
                     <div class="flex items-center gap-2 mb-2">
                         <span class="text-sm font-semibold text-blue-900">Comentando como:</span>
                         <span class="badge badge-primary"><?= $_SESSION['user_email'] ?? 'Usuario' ?></span>
@@ -65,18 +66,30 @@
                 <?php if (empty($comments)): ?>
                     <p class="text-gray-500 italic text-center py-4">Sé el primero en comentar esta noticia.</p>
                 <?php else: ?>
-                    <?php foreach ($comments as $comment): ?>
-                    <div class="p-5 rounded-xl border border-gray-200 bg-gray-50">
+                    <?php foreach ($comments as $c): ?>
+                    <div class="p-5 rounded-xl border border-gray-200 bg-gray-50 hover:bg-white transition duration-200 shadow-sm">
                         <div class="flex items-start space-x-4">
                             <div class="shrink-0 h-10 w-10 rounded-full bg-blue-200 flex items-center justify-center text-blue-800 font-bold">
-                                <?= substr($comment->username, 0, 1) ?>
+                                <?= substr($c->username, 0, 1) ?>
                             </div>
+                            
                             <div class="min-w-0 flex-1">
-                                <div class="flex justify-between items-center">
-                                    <p class="text-sm font-bold text-gray-900"><?= $comment->username ?></p>
-                                    <p class="text-xs text-gray-500"><?= $comment->created_at ?></p>
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="text-sm font-bold text-gray-900"><?= $c->username ?></p>
+                                        <p class="text-xs text-gray-500"><?= $c->created_at ?></p>
+                                    </div>
+                                    
+                                    <?php if(isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c->id_user): ?>
+                                        <form action="<?= BASE_PATH ?>/comments/delete/<?= $c->id ?>" method="POST" onsubmit="return confirm('Confirmar');">
+                                            <button type="submit" class="text-red-600 font-bold text-xs border border-red-200 bg-red-50 px-2 py-1 rounded">
+                                                BORRAR
+                                            </button>
+                                        </form>
+                                    <?php endif; ?>
+
                                 </div>
-                                <p class="text-sm text-gray-700 mt-2"><?= $comment->content ?></p>
+                                <p class="text-sm text-gray-700 mt-2"><?= $c->content ?></p>
                             </div>
                         </div>
                     </div>
@@ -90,9 +103,9 @@
         <div class="sticky top-8 space-y-8">
           <div class="p-6 bg-white rounded-xl shadow-xl border border-gray-100 ">
             <h3 class="text-xl font-bold text-blue-900 mb-4 border-b pb-2 text-center">Últimas Noticias</h3>
-            <ul class="space-y-4 text-justify"> 
+            <ul class="space-y-4 text-justify">
               <?php if (!empty($news)): ?>
-                  <?php foreach (array_slice($news, 0, 4) as $noticia): ?>  
+                  <?php foreach ($news as $noticia): ?>
                     <li class="border-b pb-3 last:border-b-0 last:pb-0">
                       <span class="badge badge-primary border-gray-500 mb-2"><?= $noticia->duracion ?></span>
                       <a href="<?= BASE_PATH ?>/news/<?= $noticia->id ?>"
@@ -102,6 +115,8 @@
                       <p><?= $noticia->descripcion ?></p>
                     </li>
                   <?php endforeach; ?>
+              <?php else: ?>
+                  <p class="text-sm text-gray-500 text-center">No hay más noticias.</p>
               <?php endif; ?>
             </ul>
           </div>
