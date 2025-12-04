@@ -214,7 +214,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 1"
+              <img src="<?= ASSETS_PATH ?>/img/dinastia.jpg" alt="Momento destacado 1"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -227,7 +227,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 2"
+              <img src="<?= ASSETS_PATH ?>/img/victoria_concacaf_1997.jpg" alt="Momento destacado 2"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -240,7 +240,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 3"
+              <img src="<?= ASSETS_PATH ?>/img/copa_libertadores.jpg" alt="Momento destacado 3"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -253,7 +253,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 4"
+              <img src="<?= ASSETS_PATH ?>/img/copaMX.jpg" alt="Momento destacado 4"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -266,7 +266,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 5"
+              <img src="<?= ASSETS_PATH ?>/img/la_novena.jpg" alt="Momento destacado 5"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -279,7 +279,7 @@
 
           <a class="card image-full rounded-2xl overflow-hidden group">
             <figure>
-              <img src="<?= ASSETS_PATH ?>/img/estadio.jpg" alt="Momento destacado 6"
+              <img src="<?= ASSETS_PATH ?>/img/cruz_azul_actual.jpg" alt="Momento destacado 6"
                   class="object-cover w-full h-60"
                   onerror="this.src='<?= ASSETS_PATH ?>/img/estadio.jpg';"/>
             </figure>
@@ -302,12 +302,12 @@
           <article class="card card-bordered bg-base-100 rounded-2xl shadow-sm">
             <div class="card-body p-5">
               <div class="flex items-center gap-4">
-                <img src="<?= ASSETS_PATH ?>/img/goleador.png" alt="Retrato de jugador emblemático"
+                <img src="<?= ASSETS_PATH ?>/img/horacio_lopez.jpg" alt="Retrato de jugador emblemático"
                     class="w-16 h-16 rounded-full object-cover"
-                    onerror="this.src='<?= ASSETS_PATH ?>/img/goleador.png';"/>
+                    onerror="this.src='<?= ASSETS_PATH ?>/img/benjamin_galindo.jpeg';"/>
                 <div class="flex-1">
                   <div class="flex items-center gap-2">
-                    <h4 class="font-semibold">Jugador Histórico 1</h4>
+                    <h4 class="font-semibold">Horacio López</h4>
                     <span class="badge badge-outline">Leyenda</span>
                   </div>
                   <p class="text-sm text-base-content/70">Delantero • 1972-1978</p>
@@ -320,12 +320,12 @@
           <article class="card card-bordered bg-base-100 rounded-2xl shadow-sm">
             <div class="card-body p-5">
               <div class="flex items-center gap-4">
-                <img src="<?= ASSETS_PATH ?>/img/goleador.png" alt="Retrato de jugador emblemático"
+                <img src="<?= ASSETS_PATH ?>/img/benjamin_galindo.jpeg" alt="Retrato de jugador emblemático"
                     class="w-16 h-16 rounded-full object-cover"
-                    onerror="this.src='<?= ASSETS_PATH ?>/img/goleador.png';"/>
+                    onerror="this.src='<?= ASSETS_PATH ?>/img/benjamin_galindo.jpeg';"/>
                 <div class="flex-1">
                   <div class="flex items-center gap-2">
-                    <h4 class="font-semibold">Jugador Histórico 2</h4>
+                    <h4 class="font-semibold">Benjamín Galindo</h4>
                     <span class="badge badge-outline">Leyenda</span>
                   </div>
                   <p class="text-sm text-base-content/70">Mediocampista • 1994-2002</p>
@@ -338,12 +338,12 @@
           <article class="card card-bordered bg-base-100 rounded-2xl shadow-sm">
             <div class="card-body p-5">
               <div class="flex items-center gap-4">
-                <img src="<?= ASSETS_PATH ?>/img/goleador.png" alt="Retrato de jugador emblemático"
+                <img src="<?= ASSETS_PATH ?>/img/chaco_gimenez.jpg" alt="Retrato de jugador emblemático"
                     class="w-16 h-16 rounded-full object-cover"
                     onerror="this.src='<?= ASSETS_PATH ?>/img/goleador.png';"/>
                 <div class="flex-1">
                   <div class="flex items-center gap-2">
-                    <h4 class="font-semibold">Jugador Histórico 3</h4>
+                    <h4 class="font-semibold">"Chaco" Gimenez</h4>
                     <span class="badge badge-outline">Leyenda</span>
                   </div>
                   <p class="text-sm text-base-content/70">Defensa • 2010-2019</p>

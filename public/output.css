@@ -2718,6 +2718,12 @@
   .border-white {
     border-color: var(--color-white);
   }
+  .border-white\/20 {
+    border-color: color-mix(in srgb, #fff 20%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
+  }
   .bg-base-100 {
     background-color: var(--color-base-100);
   }
@@ -3504,13 +3510,6 @@
       }
     }
   }
-  .hover\:text-red-600 {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-red-600);
-      }
-    }
-  }
   .hover\:text-white {
     &:hover {
       @media (hover: hover) {
@@ -3658,6 +3657,11 @@
   .md\:grid {
     @media (width >= 48rem) {
       display: grid;
+    }
+  }
+  .md\:w-auto {
+    @media (width >= 48rem) {
+      width: auto;
     }
   }
   .md\:grid-cols-2 {
