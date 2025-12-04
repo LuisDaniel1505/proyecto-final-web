@@ -12,7 +12,7 @@ class UsersController{
             http_response_code(404);
             return view('errors/404');
         }
-        return view('users/profile', ['user' => $user]);
+        return view('public/users/user.profile', ['user' => $user]);
         
     }
 
@@ -24,8 +24,7 @@ class UsersController{
             $usersModel = new Users(getPDO());
             $usersData = $usersModel->find($id);
         }
-        if($id) { echo "Buscando ID: " . $id; } else { echo "No llegó ID"; }
-        return view ('users/form' , ['usersItem' => $usersData]);
+        return view ('public/users/form' , ['usersItem' => $usersData]);
     }
 
 
@@ -54,8 +53,13 @@ class UsersController{
     //La funciona para registrar un usuario
     public function store($data){
         $usersModel = new Users(getPDO());
+
         if($usersModel->findByEmail($data['email'])){
-            return view('auth/register', ['error' => 'El correo electrónico ya está asociado a una cuenta.']);
+            return viewWithoutLayout('auth/signUp', ['error' => 'El correo electrónico ya está asociado a una cuenta.','fill' => $data]);
+        }
+
+        if($data['password'] !== $data['confirmar']){
+            return viewWithoutLayout('auth/signUp', ['error' => 'Las contraseñas no coinciden','fill' => $data]);
         }
 
         $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
@@ -63,6 +67,6 @@ class UsersController{
         if($usersModel->insert($data)){
             redirect('login');
         }
-        return view('auth/register', ['error' => 'Hubo un error al crear su cuenta. Intentelo mas tarde']);
+        return viewWithoutLayout('auth/signUp', ['error' => 'Hubo un error al crear su cuenta. Intentelo mas tarde']);
     }
 }

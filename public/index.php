@@ -124,12 +124,12 @@ if ($route === 'profile/delete'){
 }
 
 //Para el caso del registro de usuario
-if ($route === 'register'){
+if ($route === 'signUp'){
   
   if($method === 'POST'){
     return (new UsersController())->store($_POST);
   }
-  return viewWithoutLayout('auth/register');
+  return viewWithoutLayout('auth/signUp');
 }
 
 http_response_code(404);

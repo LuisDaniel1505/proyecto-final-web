@@ -51,6 +51,9 @@
         <div class="relative z-10 w-full max-w-md bg-white rounded-lg shadow-2xl overflow-hidden m-4">
             
             <div class="bg-gray-50 px-8 py-6 border-b border-gray-100 text-center">
+                <div class="flex items-center justify-start mt-2">
+                    <a href="<?=BASE_PATH ?>/home" class="text-sm font-medium underline text-blue-600 hover:text-blue-500">Inicio</a>
+                </div>
                 <div class="inline-block p-3 rounded-full bg-blue-100 mb-2">
                     <i class="fas fa-user text-blue-800 text-2xl"></i>
                 </div>
@@ -85,9 +88,6 @@
                             </div>
                             <input type="password" name="password" id="password" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-blue-600 sm:text-sm transition duration-150 ease-in-out" placeholder="••••••••">
                         </div>
-                        <div class="flex items-center justify-end mt-2">
-                            <a href="#" class="text-sm font-medium text-blue-600 hover:text-blue-500">¿Olvidaste tu contraseña?</a>
-                        </div>
                     </div>
 
                     <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-600 transition-colors duration-200">
@@ -98,7 +98,7 @@
                 <div class="mt-6 text-center">
                     <p class="text-sm text-gray-600">
                         ¿No tienes una cuenta? 
-                        <a href="#" class="font-medium text-blue-700 hover:text-blue-600">Regístrate aquí</a>
+                        <a href="<?= BASE_PATH ?>/signUp" class="font-medium text-blue-700 hover:text-blue-600">Regístrate aquí</a>
                     </p>
                 </div>
             </div>
